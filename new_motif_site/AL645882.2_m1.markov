@@ -1,0 +1,24 @@
+# 1-order Markov frequencies from file new_motif_site/AL645882.2.fasta
+# seqs: 1    min: 8667507    max: 8667507    avg: 8667507.0    sum: 8667507    alph: DNA
+# order 0
+A 1.394e-01
+C 3.606e-01
+G 3.606e-01
+T 1.394e-01
+# order 1
+AA 1.586e-02
+AC 5.744e-02
+AG 4.779e-02
+AT 1.831e-02
+CA 5.065e-02
+CC 1.143e-01
+CG 1.478e-01
+CT 4.779e-02
+GA 6.315e-02
+GC 1.257e-01
+GG 1.143e-01
+GT 5.744e-02
+TA 9.747e-03
+TC 6.315e-02
+TG 5.065e-02
+TT 1.586e-02
