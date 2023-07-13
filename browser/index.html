@@ -1,0 +1,85 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>S. coe ChIP</title>
+  <script src="https://cdn.jsdelivr.net/npm/igv@2.15.5/dist/igv.min.js"></script>
+</head>
+<body>
+<div>
+    <h1>Genome browser for S. coelicolor A3(2) with ChIP-seq for σ<sup>E</sup>-HA with/without EtOH treatment</h1>
+    <ul>
+        <li>This is supplementary data for <code>σ<sup>E</sup> of Streptomyces coelicolor can function both as a direct activator or repressor of transcription</code> paper</li>
+        <li>The raw data can be obtained from ArrayExpress (BioStudies) E-MTAB-10987</li>
+    </ul>
+    <div>
+        <div id="igv-div" class="w3-padding"></div>
+    </div>
+    <div>
+        <ul>
+            <li>Samples were mapped with Bowtie2 and coverage was computed with <a href="https://doi.org/10.1093/nar/gkw257">deepTools2</a> 
+                bamCoverage with RPGC normalization with effective genome size computed by <a href="https://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/">Kent's tools</a> faCount.</li>
+            <li>Sequence and annotation for Streptomyces coelicolor A3(2) genome (<code>AL645882.2</code>) were obtained from NCBI assembly <code>GCA_000203835.1</code></li>
+            <li>This presentation uses <a href="https://doi.org/10.1093/bioinformatics/btac830">igv.js</a> genome browser, we thank the authors.</li>
+        </ul>
+    </div>
+</div>
+</body> 
+<footer>
+<script>
+var igvDiv = document.getElementById("igv-div");
+
+var options =
+{
+	"reference": {
+        "name": "AL645882.2",
+        "fastaURL": "AL645882.2.fasta",
+        "indexURL": "AL645882.2.fasta.fai",
+        "indexed": true,
+        "showIdeogram": false,
+    },
+	"showChromosomeWidget": false,
+	"loadDefaultGenomes": false,
+	"tracks": [
+    {
+        "name": "NCBI annotation",
+        "type": "annotation",
+        "format": "gff3",
+        "displayMode": "expanded",
+        "height": 200,
+        "url": "GCA_000203835.1_ASM20383v1_genomic.gff",
+    }, {
+        "name": "SigE-HA EtOH treatment",
+        "type": "wig",
+        "url": "E1-E4.bam.bw",
+        "autoscale": true,
+        "autoscaleGroup": "chip",
+        "color": "red",
+    }, {
+        "name": "SigE-HA untreated",
+        "type": "wig",
+        "url": "C1-C4.bam.bw",
+        "autoscale": true,
+        "autoscaleGroup": "chip",
+        "color": "green",
+    }, {
+        "name": "WT control",
+        "type": "wig",
+        "url": "V1-V3.bam.bw",
+        "autoscale": true,
+        "autoscaleGroup": "chip",
+        "color": "gray",
+    }
+    ]
+};
+
+igv.createBrowser(igvDiv, options)
+		.then(function (browser) {
+			igv.browser = browser;
+		})
+
+</script>
+
+</footer>
+</html>
